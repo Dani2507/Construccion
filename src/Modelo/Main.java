@@ -25,27 +25,11 @@ public class Main {
         
          String nombre ="file.csv";
          ArrayList<String[]> lista = ParsearArchivo.leerArchivo(nombre);
-        
-             
-        for(int i=0;i<lista.size();i++){
-            
-            for(int j=0;j<lista.get(i).length;j++){
-                 System.out.println(lista.get(i)[j]);
-            }
-            System.out.println("--------");
-           
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+         ArrayList<Cuarto> listaCuartos = CreacionCuartos.crearCuartos(lista);
+         for(int i=0;i<listaCuartos.size();i++){
+             System.out.println(listaCuartos.get(i).getSalidaOeste());
+         }
+         
     }
-    
-    
-   
 
 }

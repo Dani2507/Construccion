@@ -40,7 +40,24 @@ public class Cuarto {
     public String getDescripcion() {
         return descripcion;
     }
-      
+
+    public Cuarto getSalidaNorte() {
+        return salidaNorte;
+    }
+
+    public Cuarto getSalidaSur() {
+        return salidaSur;
+    }
+
+    public Cuarto getSalidaEste() {
+        return salidaEste;
+    }
+
+    public Cuarto getSalidaOeste() {
+        return salidaOeste;
+    }
+
+ 
       
     
     
