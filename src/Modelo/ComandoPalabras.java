@@ -2,7 +2,7 @@ package Modelo;
 
 public class ComandoPalabras {
     private static final String[] COMANDOS_VALIDOS = {
-        "go", "quit", "help"
+        "puerta", "salir", "ayuda"
     };
     
     public ComandoPalabras() {
