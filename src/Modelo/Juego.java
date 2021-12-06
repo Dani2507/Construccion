@@ -10,10 +10,12 @@ package Modelo;
  */
 public class Juego {
     
+    private Analizador analizador;
     private Cuarto cuartoActual;
     
     public Juego(){
         crearCuartos();
+        analizador = new Analizador();
     }
     
     private void crearCuartos(){
@@ -36,7 +38,7 @@ public class Juego {
         boolean finalizar = false;
         
         while(! finalizar){
-            Comandos comandos = 1;
+            Comandos comandos = analizador.getComandos;
             finalizar = procezarComando(comandos);
         }
         System.out.println("");
