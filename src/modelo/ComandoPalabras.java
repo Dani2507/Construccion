@@ -1,4 +1,4 @@
-package modelo;
+package Modelo;
 
 public class ComandoPalabras {
     private static final String[] COMANDOS_VALIDOS = {
