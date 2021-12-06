@@ -38,7 +38,7 @@ public class Juego {
         boolean finalizar = false;
         
         while(! finalizar){
-            Comandos comandos = analizador.getComandos;
+            Comandos comandos = analizador.getComandos();
             finalizar = procezarComando(comandos);
         }
         System.out.println("");
@@ -83,7 +83,7 @@ public class Juego {
         else if (palabraComando.equals("puerta"))
             comandoIr(comandos);
         else if (palabraComando.equals("salir"))
-            terminarElJuego=comadoSalir(comandos);
+            terminarElJuego=comandoSalir(comandos);
         
         return terminarElJuego;
     }
@@ -105,7 +105,7 @@ public class Juego {
             return;
         }
 
-        String direction = comandos.tieneSegundaPalabra();
+        String direction = comandos.getSegundaPalabraComando();
 
         // Try to leave current room.
         Cuarto siguienteCuarto = null;
@@ -145,7 +145,7 @@ public class Juego {
         }
     }
     
-    public void comandoSalir(Comandos comandos){
+    public boolean comandoSalir(Comandos comandos){
         if(comandos.tieneSegundaPalabra()){
             System.out.println("¿Dejar que?");
             return false;
