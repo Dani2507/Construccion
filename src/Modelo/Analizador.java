@@ -10,12 +10,12 @@ import java.util.Scanner;
  * @author Daniel
  */
 public class Analizador {
-    //private CommandWords commands;
+    private ComandoPalabras comandos;
     private Scanner entrada;
 
     public Analizador() 
     {
-        //commands = new CommandWords();
+        comandos = new ComandoPalabras();
         entrada = new Scanner(System.in);
     }
 
@@ -37,7 +37,7 @@ public class Analizador {
             }
         }
 
-        if(comandos.isCommand(palabra1)) {
+        if(comandos.esComando(palabra1)) {
             return new Comandos(palabra1, palabra2);
         }
         else {
