@@ -1,5 +1,7 @@
 package Modelo;
 
+import Modelo.*;
+
 public class Comandos {
     private String palabraComando;
     private String segundaPalabraComando;
