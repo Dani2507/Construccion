@@ -50,16 +50,16 @@ public class Juego {
         System.out.println("");
         System.out.println("En fin, actualmente te encuentras en: " + cuartoActual.getDescripcion());
         System.out.println("Puedes ir al");
-        if(cuartoActual.salidaNorte != null) {
+        if(cuartoActual.getSalidaNorte()!= null) {
             System.out.print("norte ");
         }
-        if(cuartoActual.salidaEste != null) {
+        if(cuartoActual.getSalidaEste()!= null) {
             System.out.print("este ");
         }
-        if(cuartoActual.salidaSur != null) {
+        if(cuartoActual.getSalidaSur() != null) {
             System.out.print("sur ");
         }
-        if(cuartoActual.salidaOeste != null) {
+        if(cuartoActual.getSalidaOeste()!= null) {
             System.out.print("oeste ");
         }
         System.out.println();
@@ -107,16 +107,16 @@ public class Juego {
         // Try to leave current room.
         Cuarto siguienteCuarto = null;
         if(direction.equals("norte")) {
-            siguienteCuarto = cuartoActual.salidaNorte;
+            siguienteCuarto = cuartoActual.getSalidaNorte();
         }
         if(direction.equals("este")) {
-            siguienteCuarto = cuartoActual.salidaEste;
+            siguienteCuarto = cuartoActual.getSalidaEste();
         }
         if(direction.equals("sur")) {
-            siguienteCuarto = cuartoActual.salidaSur;
+            siguienteCuarto = cuartoActual.getSalidaSur();
         }
         if(direction.equals("oeste")) {
-            siguienteCuarto = cuartoActual.salidaOeste;
+            siguienteCuarto = cuartoActual.getSalidaOeste();
         }
 
         if (siguienteCuarto == null) {
@@ -126,16 +126,16 @@ public class Juego {
             cuartoActual = siguienteCuarto;
             System.out.println("Tu estas " + cuartoActual.getDescripcion());
             System.out.print("Salidas: ");
-            if(cuartoActual.salidaNorte != null) {
+            if(cuartoActual.getSalidaNorte()!= null) {
                 System.out.print("Norte ");
             }
-            if(cuartoActual.salidaEste != null) {
+            if(cuartoActual.getSalidaEste() != null) {
                 System.out.print("Este ");
             }
-            if(cuartoActual.salidaSur != null) {
+            if(cuartoActual.getSalidaSur()!= null) {
                 System.out.print("Sur ");
             }
-            if(cuartoActual.salidaOeste != null) {
+            if(cuartoActual.getSalidaOeste() != null) {
                 System.out.print("Oeste ");
             }
             System.out.println();
