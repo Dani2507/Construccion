@@ -26,7 +26,7 @@ public class CreacionCuartos {
 
     }
 
-    public static int buscarCuarto(String nombre, ArrayList<Cuarto> cuartos) {
+    private static int buscarCuarto(String nombre, ArrayList<Cuarto> cuartos) {
 
         int indice = -1;
         for (int i = 0; i < cuartos.size(); i++) {
@@ -38,7 +38,7 @@ public class CreacionCuartos {
         return indice;
     }
 
-    public static ArrayList<Cuarto> asignarSalidas(ArrayList<Cuarto> cuartos, ArrayList<String[]> lista) {
+    private static ArrayList<Cuarto> asignarSalidas(ArrayList<Cuarto> cuartos, ArrayList<String[]> lista) {
 
         Cuarto[] temp = new Cuarto[4];
         for (int i = 0; i < lista.size(); i++) {
