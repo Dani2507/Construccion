@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
@@ -18,17 +20,12 @@ public class Juego {
         analizador = new Analizador();
     }
     
-    private void crearCuartos(){
-    
-        Cuarto entrada, comedor, laboratorio, oficina, teatro;
+    private void crearCuartos(){   
+         String nombre ="file.csv";
+         ArrayList<String[]> lista = ParsearArchivo.leerArchivo(nombre);
+         ArrayList<Cuarto> listaCuartos = CreacionCuartos.crearCuartos(lista);
         
-        entrada = new Cuarto("Entrada","fuera de la entrada principal de la universidad");
-        teatro = new Cuarto("Teatro","en una sala de conferencias");
-        comedor = new Cuarto("Comedor","en el pub del campus");
-        laboratorio = new Cuarto("Laboratorio","en un laboratorio de computación");
-        oficina = new Cuarto("Teatro","en la oficina de administración informática");
-        
-        cuartoActual = entrada;
+       cuartoActual = listaCuartos.get(0);
     }
     
     public void iniciar(){
@@ -51,18 +48,18 @@ public class Juego {
         System.out.println("pasearte por la universidad");
         System.out.println("Y YA!, No esperes mucho");
         System.out.println("");
-        System.out.println("En fin, actualmente te encuentras en: ");
+        System.out.println("En fin, actualmente te encuentras en: " + cuartoActual.getDescripcion());
         System.out.println("Puedes ir al");
-        if(cuartoActual.salidaNorte != null) {
+        if(cuartoActual.getSalidaNorte()!= null) {
             System.out.print("norte ");
         }
-        if(cuartoActual.salidaEste != null) {
+        if(cuartoActual.getSalidaEste()!= null) {
             System.out.print("este ");
         }
-        if(cuartoActual.salidaSur != null) {
+        if(cuartoActual.getSalidaSur() != null) {
             System.out.print("sur ");
         }
-        if(cuartoActual.salidaOeste != null) {
+        if(cuartoActual.getSalidaOeste()!= null) {
             System.out.print("oeste ");
         }
         System.out.println();
@@ -110,16 +107,16 @@ public class Juego {
         // Try to leave current room.
         Cuarto siguienteCuarto = null;
         if(direction.equals("norte")) {
-            siguienteCuarto = cuartoActual.salidaNorte;
+            siguienteCuarto = cuartoActual.getSalidaNorte();
         }
         if(direction.equals("este")) {
-            siguienteCuarto = cuartoActual.salidaEste;
+            siguienteCuarto = cuartoActual.getSalidaEste();
         }
         if(direction.equals("sur")) {
-            siguienteCuarto = cuartoActual.salidaSur;
+            siguienteCuarto = cuartoActual.getSalidaSur();
         }
         if(direction.equals("oeste")) {
-            siguienteCuarto = cuartoActual.salidaOeste;
+            siguienteCuarto = cuartoActual.getSalidaOeste();
         }
 
         if (siguienteCuarto == null) {
@@ -129,16 +126,16 @@ public class Juego {
             cuartoActual = siguienteCuarto;
             System.out.println("Tu estas " + cuartoActual.getDescripcion());
             System.out.print("Salidas: ");
-            if(cuartoActual.salidaNorte != null) {
+            if(cuartoActual.getSalidaNorte()!= null) {
                 System.out.print("Norte ");
             }
-            if(cuartoActual.salidaEste != null) {
+            if(cuartoActual.getSalidaEste() != null) {
                 System.out.print("Este ");
             }
-            if(cuartoActual.salidaSur != null) {
+            if(cuartoActual.getSalidaSur()!= null) {
                 System.out.print("Sur ");
             }
-            if(cuartoActual.salidaOeste != null) {
+            if(cuartoActual.getSalidaOeste() != null) {
                 System.out.print("Oeste ");
             }
             System.out.println();

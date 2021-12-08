@@ -9,28 +9,22 @@ package Modelo;
  * @author 18K59LA
  */
 public class Cuarto {
-   public String nombre;
-    public String descripcion;
-    public Cuarto salidaNorte;
-    public Cuarto salidaSur;
-    public Cuarto salidaEste;
-    public Cuarto salidaOeste;
+
+    private String nombre;
+    private String descripcion;
+    private Cuarto salidas[] = new Cuarto[4];
 
     public Cuarto(String name, String description) {
         this.nombre = name;
         this.descripcion = description;
     }
-    
-      public void setSalidas(Cuarto norte, Cuarto este, Cuarto sur, Cuarto oeste) 
-    {
-        if(norte != null)
-            salidaNorte = norte;
-        if(este != null)
-            salidaEste = este;
-        if(sur != null)
-            salidaSur = sur;
-        if(oeste != null)
-            salidaOeste = oeste;
+
+    public void setSalidas(Cuarto[] cuartos) {
+        for (int i = 0; i < cuartos.length; i++) {
+            if (cuartos[i] != null) {
+                salidas[i] = cuartos[i];
+            }
+        }
     }
 
     public String getNombre() {
@@ -41,25 +35,24 @@ public class Cuarto {
         return descripcion;
     }
 
+    public Cuarto[] getSalidas() {
+        return salidas;
+    }
+
     public Cuarto getSalidaNorte() {
-        return salidaNorte;
+        return salidas[0];
     }
 
     public Cuarto getSalidaSur() {
-        return salidaSur;
+        return salidas[2];
     }
 
     public Cuarto getSalidaEste() {
-        return salidaEste;
+        return salidas[1];
     }
 
     public Cuarto getSalidaOeste() {
-        return salidaOeste;
+        return salidas[3];
     }
 
- 
-      
-    
-    
-    
 }
