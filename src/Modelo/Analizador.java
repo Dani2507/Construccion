@@ -1,17 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Daniel
- */
 public class Analizador {
-
     private ComandoPalabras comandos;
     private Scanner entrada;
 
@@ -25,7 +16,7 @@ public class Analizador {
         String palabra1 = null;
         String palabra2 = null;
 
-        System.out.print("> ");
+        System.out.print("> ");//Indica al usuario donde insertar el comando en la consola
 
         lineaDeEntrada = entrada.nextLine();
 
@@ -36,12 +27,11 @@ public class Analizador {
                 palabra2 = tokenizer.next();
             }
         }
-
+        
         if (comandos.esComando(palabra1)) {
             return new Comandos(palabra1, palabra2);
         } else {
             return new Comandos(null, palabra2);
         }
     }
-
 }
