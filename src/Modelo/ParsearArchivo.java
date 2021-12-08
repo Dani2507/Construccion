@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class ParsearArchivo {
 
-    public static ArrayList<String[]> leerArchivo(String nombre) {
+    public static ArrayList<String[]> leerArchivo(String nombre) throws Exception {
 
         File archivo = new File(nombre);
         BufferedReader bufferLectura = null;
@@ -41,8 +41,21 @@ public class ParsearArchivo {
                 }
             }
         }
+        
+        validarArray(lista);
         return lista;
 
     }
 
+    private static void validarArray( ArrayList<String[]> lista) throws Exception{
+        for(int i=0;i<lista.size();i++){
+            if(lista.get(i).length!=6){
+                System.out.println("ERROR EN LA CONFIGURACIÓN DEL ARCHIVO");
+                System.exit(0);
+            }
+        }
+        
+      
+        
+    }
 }
