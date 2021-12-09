@@ -15,17 +15,24 @@ public class Juego {
     private Analizador analizador;
     private Cuarto cuartoActual;
     
-    public Juego(){
+    public Juego() throws Exception{
         crearCuartos();
         analizador = new Analizador();
     }
     
-    private void crearCuartos(){   
+    private void crearCuartos() throws Exception{   
+    
          String nombre ="file.csv";
+         try{
          ArrayList<String[]> lista = ParsearArchivo.leerArchivo(nombre);
          ArrayList<Cuarto> listaCuartos = CreacionCuartos.crearCuartos(lista);
         
-       cuartoActual = listaCuartos.get(0);
+       cuartoActual = listaCuartos.get(0);}
+         catch(Exception e){
+             System.out.println("ERROR EN EL ARCHIVO DE CONFIGURACION");
+             System.exit(0);
+         }
+       
     }
     
     public void iniciar(){
