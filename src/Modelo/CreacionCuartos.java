@@ -3,13 +3,14 @@ package Modelo;
 import java.util.ArrayList;
 
 public class CreacionCuartos {
+
     public static ArrayList<Cuarto> crearCuartos(ArrayList<String[]> lista) {
         ArrayList<Cuarto> cuartos = new ArrayList<>();
-        Cuarto cuarto;        
+        Cuarto cuarto;
         for (int i = 0; i < lista.size(); i++) {
             cuarto = new Cuarto(lista.get(i)[0], lista.get(i)[1]);
             cuartos.add(cuarto);
-        }        
+        }
         return asignarSalidas(cuartos, lista);
     }
 
@@ -20,7 +21,7 @@ public class CreacionCuartos {
 
                 indice = i;
             }
-        }        
+        }
         return indice;
     }
 
@@ -39,5 +40,3 @@ public class CreacionCuartos {
         return cuartos;
     }
 }
-
-

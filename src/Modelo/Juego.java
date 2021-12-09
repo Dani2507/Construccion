@@ -1,55 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Daniel
- */
 public class Juego {
-    
+
     private Analizador analizador;
     private Cuarto cuartoActual;
-    
-    public Juego() throws Exception{
+
+    public Juego() throws Exception {
         crearCuartos();
         analizador = new Analizador();
     }
-    
-    private void crearCuartos() throws Exception{   
-    
-         String nombre ="file.csv";
-         try{
-         ArrayList<String[]> lista = ParsearArchivo.leerArchivo(nombre);
-         ArrayList<Cuarto> listaCuartos = CreacionCuartos.crearCuartos(lista);
-        
-       cuartoActual = listaCuartos.get(0);}
-         catch(Exception e){
-             System.out.println("ERROR EN EL ARCHIVO DE CONFIGURACION");
-             System.exit(0);
-         }
-       
+
+    private void crearCuartos() throws Exception {
+        String nombre = "file.csv";
+        try {
+            ArrayList<String[]> lista = ParsearArchivo.leerArchivo(nombre);
+            ArrayList<Cuarto> listaCuartos = CreacionCuartos.crearCuartos(lista);
+            cuartoActual = listaCuartos.get(0);
+        } catch (Exception e) {
+            System.out.println("ERROR EN EL ARCHIVO DE CONFIGURACION");
+            System.exit(0);
+        }
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         imprimirMensajeDeInicio();
-        
-        
+
         boolean finalizar = false;
-        
-        while(! finalizar){
+
+        while (!finalizar) {
             Comandos comandos = analizador.getComandos();
             finalizar = procezarComando(comandos);
         }
         System.out.println("");
     }
-    
-    
-    public void imprimirMensajeDeInicio(){
+
+    public void imprimirMensajeDeInicio() {
         System.out.println("BIENVENIDO A ZUUL!!");
         System.out.println("En este juego tendras la oportunidad de");
         System.out.println("pasearte por la universidad");
@@ -57,42 +44,43 @@ public class Juego {
         System.out.println("");
         System.out.println("En fin, actualmente te encuentras en: " + cuartoActual.getDescripcion());
         System.out.println("Puedes ir al");
-        if(cuartoActual.getSalidaNorte()!= null) {
+        if (cuartoActual.getSalidaNorte() != null) {
             System.out.print("norte ");
         }
-        if(cuartoActual.getSalidaEste()!= null) {
+        if (cuartoActual.getSalidaEste() != null) {
             System.out.print("este ");
         }
-        if(cuartoActual.getSalidaSur() != null) {
+        if (cuartoActual.getSalidaSur() != null) {
             System.out.print("sur ");
         }
-        if(cuartoActual.getSalidaOeste()!= null) {
+        if (cuartoActual.getSalidaOeste() != null) {
             System.out.print("oeste ");
         }
         System.out.println();
     }
-    
-    public boolean procezarComando(Comandos comandos){
+
+    public boolean procezarComando(Comandos comandos) {
         boolean terminarElJuego = false;
-        
-        if(comandos.esDesconocido()){
+
+        if (comandos.esDesconocido()) {
             System.out.println("No se a que te refieres...");
             return false;
         }
-        
+
         String palabraComando = comandos.getPalabraComando();
-        
-        if(palabraComando.equals("ayuda"))
+
+        if (palabraComando.equals("ayuda")) {
             comandoAyuda();
-        else if (palabraComando.equals("puerta"))
+        } else if (palabraComando.equals("puerta")) {
             comandoIr(comandos);
-        else if (palabraComando.equals("salir"))
-            terminarElJuego=comandoSalir(comandos);
-        
+        } else if (palabraComando.equals("salir")) {
+            terminarElJuego = comandoSalir(comandos);
+        }
+
         return terminarElJuego;
     }
-    
-    public void comandoAyuda(){
+
+    public void comandoAyuda() {
         System.out.println("Que paso master? Tienes problemas?");
         System.out.println("No hay problema, se te ayuda");
         System.out.println("Mira tus palabras de mando son:");
@@ -101,59 +89,58 @@ public class Juego {
         System.out.println("disponibles, por ejemplo: ir norte");
         System.out.println("-salir- hace que termine el juego");
     }
-    
-    public void comandoIr(Comandos comandos){
-        if(!comandos.tieneSegundaPalabra()) {
-            // if there is no second word, we don't know where to go...
+
+    public void comandoIr(Comandos comandos) {
+        //Si el comando carece de segunda palabra, se avisa al jugador y se regresa al inicio
+        if (!comandos.tieneSegundaPalabra()) {
             System.out.println("¿Ir a donde?");
             return;
         }
 
         String direction = comandos.getSegundaPalabraComando();
 
-        // Try to leave current room.
+        //Para tener un nivel de anidamiento menor, se tienen condicionales independientes en lugar de condicionales anidados
         Cuarto siguienteCuarto = null;
-        if(direction.equals("norte")) {
+        if (direction.equals("norte")) {
             siguienteCuarto = cuartoActual.getSalidaNorte();
         }
-        if(direction.equals("este")) {
+        if (direction.equals("este")) {
             siguienteCuarto = cuartoActual.getSalidaEste();
         }
-        if(direction.equals("sur")) {
+        if (direction.equals("sur")) {
             siguienteCuarto = cuartoActual.getSalidaSur();
         }
-        if(direction.equals("oeste")) {
+        if (direction.equals("oeste")) {
             siguienteCuarto = cuartoActual.getSalidaOeste();
         }
 
         if (siguienteCuarto == null) {
             System.out.println("¡No hay puerta!");
-        }
-        else {
+        } else {
             cuartoActual = siguienteCuarto;
             System.out.println("Tu estas " + cuartoActual.getDescripcion());
             System.out.print("Salidas: ");
-            if(cuartoActual.getSalidaNorte()!= null) {
+            if (cuartoActual.getSalidaNorte() != null) {
                 System.out.print("Norte ");
             }
-            if(cuartoActual.getSalidaEste() != null) {
+            if (cuartoActual.getSalidaEste() != null) {
                 System.out.print("Este ");
             }
-            if(cuartoActual.getSalidaSur()!= null) {
+            if (cuartoActual.getSalidaSur() != null) {
                 System.out.print("Sur ");
             }
-            if(cuartoActual.getSalidaOeste() != null) {
+            if (cuartoActual.getSalidaOeste() != null) {
                 System.out.print("Oeste ");
             }
             System.out.println();
         }
     }
-    
-    public boolean comandoSalir(Comandos comandos){
-        if(comandos.tieneSegundaPalabra()){
+
+    public boolean comandoSalir(Comandos comandos) {
+        if (comandos.tieneSegundaPalabra()) {
             System.out.println("¿Dejar que?");
             return false;
-        }else{
+        } else {
             return true;
         }
     }

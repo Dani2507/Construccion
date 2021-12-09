@@ -3,6 +3,7 @@ package Modelo;
 import java.util.Scanner;
 
 public class Analizador {
+
     private ComandoPalabras comandos;
     private Scanner entrada;
 
@@ -27,7 +28,7 @@ public class Analizador {
                 palabra2 = tokenizer.next();
             }
         }
-        
+
         if (comandos.esComando(palabra1)) {
             return new Comandos(palabra1, palabra2);
         } else {
