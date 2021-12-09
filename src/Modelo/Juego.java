@@ -72,7 +72,7 @@ public class Juego {
         if (palabraComando.equals("ayuda")) {
             comandoAyuda();
         } else if (palabraComando.equals("puerta")) {
-            comandoIr(comandos);
+            revisarComandoPuerta(comandos);
         } else if (palabraComando.equals("salir")) {
             terminarElJuego = comandoSalir(comandos);
         }
@@ -90,13 +90,16 @@ public class Juego {
         System.out.println("-salir- hace que termine el juego");
     }
 
-    public void comandoIr(Comandos comandos) {
+    public void revisarComandoPuerta(Comandos comandos) {
         //Si el comando carece de segunda palabra, se avisa al jugador y se regresa al inicio
         if (!comandos.tieneSegundaPalabra()) {
             System.out.println("¿Ir a donde?");
             return;
         }
-
+        revisarSalidaSeleccionada(comandos);
+    }
+    
+    public void revisarSalidaSeleccionada(Comandos comandos){
         String direction = comandos.getSegundaPalabraComando();
 
         //Para tener un nivel de anidamiento menor, se tienen condicionales independientes en lugar de condicionales anidados
@@ -117,6 +120,12 @@ public class Juego {
         if (siguienteCuarto == null) {
             System.out.println("¡No hay puerta!");
         } else {
+            repetirSalidas(siguienteCuarto);
+        }    
+    }
+    
+    public void repetirSalidas(Cuarto siguienteCuarto){
+        
             cuartoActual = siguienteCuarto;
             System.out.println("Tu estas " + cuartoActual.getDescripcion());
             System.out.print("Salidas: ");
@@ -134,8 +143,7 @@ public class Juego {
             }
             System.out.println();
         }
-    }
-
+    
     public boolean comandoSalir(Comandos comandos) {
         if (comandos.tieneSegundaPalabra()) {
             System.out.println("¿Dejar que?");
