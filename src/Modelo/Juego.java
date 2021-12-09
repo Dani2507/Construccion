@@ -71,7 +71,7 @@ public class Juego {
 
         if (palabraComando.equals("ayuda")) {
             comandoAyuda();
-        } else if (palabraComando.equals("puerta")) {
+        } else if (palabraComando.equals("ir")) {
             revisarComandoPuerta(comandos);
         } else if (palabraComando.equals("salir")) {
             terminarElJuego = comandoSalir(comandos);
