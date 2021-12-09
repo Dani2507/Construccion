@@ -1,15 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author 18K59LA
- */
 public class Cuarto {
-
     private String nombre;
     private String descripcion;
     private Cuarto salidas[] = new Cuarto[4];
@@ -54,5 +45,4 @@ public class Cuarto {
     public Cuarto getSalidaOeste() {
         return salidas[3];
     }
-
 }

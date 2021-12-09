@@ -1,45 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author 18K59LA
- */
 public class CreacionCuartos {
-
     public static ArrayList<Cuarto> crearCuartos(ArrayList<String[]> lista) {
-
         ArrayList<Cuarto> cuartos = new ArrayList<>();
-        Cuarto cuarto;
-
+        Cuarto cuarto;        
         for (int i = 0; i < lista.size(); i++) {
             cuarto = new Cuarto(lista.get(i)[0], lista.get(i)[1]);
             cuartos.add(cuarto);
-        }
-
+        }        
         return asignarSalidas(cuartos, lista);
-
     }
 
     private static int buscarCuarto(String nombre, ArrayList<Cuarto> cuartos) {
-
         int indice = -1;
         for (int i = 0; i < cuartos.size(); i++) {
             if (nombre.equals(cuartos.get(i).getNombre())) {
 
                 indice = i;
             }
-        }
+        }        
         return indice;
     }
 
     private static ArrayList<Cuarto> asignarSalidas(ArrayList<Cuarto> cuartos, ArrayList<String[]> lista) {
-
         Cuarto[] temp = new Cuarto[4];
         for (int i = 0; i < lista.size(); i++) {
             for (int j = 0; j < temp.length; j++) {
@@ -51,7 +36,6 @@ public class CreacionCuartos {
             }
             cuartos.get(i).setSalidas(temp);
         }
-
         return cuartos;
     }
 }
