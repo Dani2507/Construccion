@@ -34,7 +34,9 @@ public class ParsearArchivo {
         validarArray(lista);
         return lista;
     }
-
+    /*Se valida que cada arrray de String tenga 6 cadenas, ya que es la cantidad
+    de elementos que se debe tener para crear un cuarto.
+    */
     private static void validarArray(ArrayList<String[]> lista) throws Exception {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).length != 6) {
