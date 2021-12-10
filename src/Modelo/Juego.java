@@ -130,16 +130,16 @@ public class Juego {
             System.out.println("Tu estas " + cuartoActual.getDescripcion());
             System.out.print("Salidas: ");
             if (cuartoActual.getSalidaNorte() != null) {
-                System.out.print("Norte ");
+                System.out.print("norte ");
             }
             if (cuartoActual.getSalidaEste() != null) {
-                System.out.print("Este ");
+                System.out.print("este ");
             }
             if (cuartoActual.getSalidaSur() != null) {
-                System.out.print("Sur ");
+                System.out.print("sur ");
             }
             if (cuartoActual.getSalidaOeste() != null) {
-                System.out.print("Oeste ");
+                System.out.print("oeste ");
             }
             System.out.println();
         }

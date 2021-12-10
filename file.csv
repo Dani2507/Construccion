@@ -1,5 +1,5 @@
-outside,outside the main entrance of the university,null,theatre,lab,pub
-theatre,in a lecture theatre,null,null,null,outside
-pub,in the campus pub,null,outside,null,null
-lab,in a computing lab,outside,office,null,null
-office,in the computing admin office,null,null,null,lab
+afuera,afuera de la universidad,null,teatro,laboratorio,taberna
+teatro,en una sala de conferencias,null,null,null,afuera
+taberna,en la taberna del campus,null,afuera,null,null
+laboratorio,en un laboratorio de computo,afuera,oficina,null,null
+oficina,en la oficina de administración informática,null,null,null,laboratorio
