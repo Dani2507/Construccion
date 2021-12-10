@@ -2,9 +2,9 @@ package Modelo;
 
 public class Cuarto {
 
-    private String nombre;
+    private final String nombre;
     private String descripcion;
-    private Cuarto salidas[] = new Cuarto[4];
+    private final Cuarto salidas[] = new Cuarto[4];
 
     public Cuarto(String name, String description) {
         this.nombre = name;
