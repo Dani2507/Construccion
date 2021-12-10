@@ -31,7 +31,7 @@ public class Juego {
 
         while (!finalizar) {
             Comandos comandos = analizador.getComandos();
-            finalizar = procezarComando(comandos);
+            finalizar = procesarComando(comandos);
         }
         System.out.println("");
     }
@@ -59,7 +59,7 @@ public class Juego {
         System.out.println();
     }
 
-    public boolean procezarComando(Comandos comandos) {
+    public boolean procesarComando(Comandos comandos) {
         boolean terminarElJuego = false;
 
         if (comandos.esDesconocido()) {
@@ -71,7 +71,7 @@ public class Juego {
 
         if (palabraComando.equals("ayuda")) {
             comandoAyuda();
-        } else if (palabraComando.equals("puerta")) {
+        } else if (palabraComando.equals("ir")) {
             revisarComandoPuerta(comandos);
         } else if (palabraComando.equals("salir")) {
             terminarElJuego = comandoSalir(comandos);
