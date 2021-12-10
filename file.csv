@@ -1,0 +1,5 @@
+afuera,afuera de la universidad,null,teatro,laboratorio,taberna
+teatro,en una sala de conferencias,null,null,null,afuera
+taberna,en la taberna del campus,null,afuera,null,null
+laboratorio,en un laboratorio de computo,afuera,oficina,null,null
+oficina,en la oficina de administración informática,null,null,null,laboratorio
